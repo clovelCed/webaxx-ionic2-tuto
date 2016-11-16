@@ -1,0 +1,45 @@
+<ion-header>
+<ion-navbar color="myblue">
+  <ion-title>Webaxx weather</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="currentWeather" class="current">
+    <ion-grid>
+      <ion-row center>
+        <ion-col width-33>
+          <h2 myred>{{citySelected | uppercase}}</h2>
+          <p>{{currentWeatherDate | date:'EEEE HH:mm'}}</p>
+        </ion-col>
+        <ion-col width-33 text-center>
+          <h3>{{currentWeather}}°</h3>
+        </ion-col>
+        <ion-col width-33 text-center>
+          <img src="http://openweathermap.org/img/w/{{currentWeatherIcon}}.png">
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+  <line-chart class="line-chart" [data] = "temp" [labels] = "hours"></line-chart>
+
+  <div class="daily-weather" *ngFor="let day of dailyForecast">
+    <div>{{day.date | date:'EE'}}</div>
+    <img src="http://openweathermap.org/img/w/{{day.icon}}.png">
+    <div class="temp-max">{{day.maxTemp}}°</div>
+    <div class="temp-min">{{day.minTemp}}°</div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar position="bottom" myblue>
+    <ion-item>
+      <ion-input #city type="text" placeholder="City"></ion-input>
+        <button ion-button outline item-right icon-left (click) = "getCity(city.value)">
+          <ion-icon name="search"></ion-icon>
+          Search
+        </button>
+      </ion-item>
+    </ion-toolbar>
+</ion-footer>
