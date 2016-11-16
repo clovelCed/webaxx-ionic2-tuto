@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
-
-import { NavController, Platform} from 'ionic-angular';
 import {WeatherService} from '../../services/WeatherService';
 import {HourForecast} from '../../entities/HourForecast';
 import {DailyForecast} from '../../entities/DailyForecast';
-import {ChartComponent} from '../../components/ChartComponent';
 
 @Component({
   selector: 'page-home',

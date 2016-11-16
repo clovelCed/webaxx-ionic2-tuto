@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, Input, OnDestroy, OnInit, OnChanges} from '@angular/core';
+import { Component, ElementRef, Input, OnDestroy, OnInit, OnChanges} from '@angular/core';
 
 declare var Chart: any;
 
